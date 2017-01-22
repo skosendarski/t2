@@ -1,0 +1,14 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+
+Search results are below
+{% if result %}
+	<ul>
+	{% for question in result %}
+		<li><a href = "{% url 'polls:search'%}">{{ question.question_text}}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>Nie ma ankietów.</p>
+{% endif %}
